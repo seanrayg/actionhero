@@ -76,7 +76,7 @@ api.tasks.enqueueAt(1234556, &quot;sendWelcomeEmail&quot;, {to: 'evan@evantahler
 api.tasks.enqueueIn(10000, &quot;sendWelcomeEmail&quot;, {to: 'evan@evantahler.com'}, 'default', function(error, toRun){
   // enqueued!
 });</code></pre><p>Here are examples of the 3 ways to programmatically enqueue a task.</p>
-<p>&quot;sendWelcomeEmail&quot; should be a task defined in the project, and <code>{</code>{to: <a href="mailto:'evan@evantahler.com">'evan@evantahler.com</a>'}<code>}</code> are arguments to that task. This task will be processed by TaskProcessors assigned to the {<code>‘default queue'</code>}.</p>
+<p>&quot;sendWelcomeEmail&quot; should be a task defined in the project, and <code>{</code>{to: 'evan@evantahler.com'}<code>}</code> are arguments to that task. This task will be processed by TaskProcessors assigned to the {<code>‘default queue'</code>}.</p>
 <p>You can also enqueue tasks to be run at some time in the future (timestamp is in ms):</p>
 <p><code>enqueueAt</code> asks for a timestamp (in ms) to run at, and <code>enqueueIn</code> asks for the number of ms from now to run.</p>
 <p>The final type of task, periodic tasks, are defined with a <code>task.frequency</code> of greater than 0, and are loaded in by ActionHero when it boots. You cannot modify these tasks once the server is running.</p>
