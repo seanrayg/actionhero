@@ -243,7 +243,7 @@ class ChatRoom extends ActionHero.Initializer {
           const newMessagePayload = await api.chatRoom.runMiddleware(connection, messagePayload.room, 'say', messagePayload)
           connection.sendMessage(newMessagePayload, 'say')
         } catch (error) {
-          api.log(error, 'warning', {messagePayload, connection})
+          api.log(error, 'warning', { messagePayload, connection })
         }
       }
     }
@@ -290,7 +290,7 @@ class ChatRoom extends ActionHero.Initializer {
         let membersHash = await api.redis.clients.client.hgetall(api.chatRoom.keys.members + room)
 
         for (let id in membersHash) {
-          api.chatRoom.removeMember(id, room, false)
+          await api.chatRoom.removeMember(id, room, false)
         }
 
         await api.redis.clients.client.srem(api.chatRoom.keys.rooms, room)
